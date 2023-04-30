@@ -2,7 +2,8 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "openai": "^3.2.1",
-    "superagent": "^8.0.9"
+    "superagent": "^8.0.9",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "example": "node scripts/example.js"

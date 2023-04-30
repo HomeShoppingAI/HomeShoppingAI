@@ -1,5 +1,5 @@
 const config = require("../config")
 
-const printful = require("../services/printful")
+const assets = require("../services/assets")
 
-printful.listAllProducts().then(result => console.log(result)).catch(e => console.error(e))
+assets.createAssetFromPrompt("Hello world!").then(a => console.log(a)).catch(e => console.error(e))
