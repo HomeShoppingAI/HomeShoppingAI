@@ -1,5 +1,5 @@
 const config = require("../config")
 
-const productTemplates = require("../services/product-templates")
+const printful = require("../services/printful")
 
-console.log(productTemplates.findByName("mug"))
+printful.listAllProducts().then(result => console.log(result)).catch(e => console.error(e))

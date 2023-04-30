@@ -16,5 +16,6 @@ module.exports = {
   },
   printful: {
     apiKey: required("PRINTFUL_API_KEY"),
+    baseUrl: "https://api.printful.com",
   },
 }
