@@ -1,7 +1,10 @@
 const config = require("../config")
 
 // const assets = require("../services/assets")
-const printful = require("../services/printful")
+// const printful = require("../services/printful")
+const pipeines = require("../services/pipelines")
+
+console.log("" + pipeines.listPipelines())
 
 // assets.createAssetFromPrompt("Hello world!").then(a => console.log(a)).catch(e => console.error(e))
 
@@ -40,6 +43,6 @@ const printful = require("../services/printful")
 //     ]
 //  }
 // ).then(a => console.log(a)).catch(e => console.error(e))
-printful.listMyProducts().then(a => console.log(a)).catch(e => console.error(e))
+// printful.listMyProducts().then(a => console.log(a)).catch(e => console.error(e))
 // printful.getProductById(305746557).then(a => console.log(JSON.stringify(a, null , 2))).catch(e => console.error(e))
 // printful.listProductTemplates().then(a => console.log(a)).catch(e => console.error(e))

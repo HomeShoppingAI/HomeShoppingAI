@@ -6,6 +6,7 @@
     "uuid": "^9.0.0"
   },
   "scripts": {
-    "example": "node scripts/example.js"
+    "example": "node scripts/example.js",
+    "pipeline": "node scripts/pipeline.js"
   }
 }

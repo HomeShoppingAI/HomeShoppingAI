@@ -1,0 +1,8 @@
+{
+  "name": "NewProduct",
+  "description": "Creates a new Product",
+  "actions": [
+    "createProduct",
+    "getProduct"
+  ]
+}

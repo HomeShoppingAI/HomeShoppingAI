@@ -1,0 +1,7 @@
+{
+  "name": "Test",
+  "description": "Just testin",
+  "actions": [
+    "bash"
+  ]
+}
