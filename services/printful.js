@@ -9,10 +9,33 @@ const transformError = (error) => {
   throw error
 }
 
-// Products
-const listAllProducts = () => request
+// Printful Catalog
+const listCatalog = () => request
   .get(`${baseUrl}/products`)
   .set("Authorization", `Bearer ${apiKey}`)
+  .then(res => res.body.result)
+  .catch(transformError)
+
+// Products
+const listMyProducts = () => request
+  .get(`${baseUrl}/sync/products`)
+  .set("Authorization", `Bearer ${apiKey}`)
+  .set("X-PF-Store-Id", "10513718")
+  .then(res => res.body.result)
+  .catch(transformError)
+
+const getProductById = (id) => request
+  .get(`${baseUrl}/sync/products/${id}`)
+  .set("Authorization", `Bearer ${apiKey}`)
+  .set("X-PF-Store-Id", "10513718")
+  .then(res => res.body.result)
+  .catch(transformError)
+
+const createProduct = (product) => request
+  .post(`${baseUrl}/store/products`)
+  .set("Authorization", `Bearer ${apiKey}`)
+  .set("X-PF-Store-Id", "10513718")
+  .send(product)
   .then(res => res.body.result)
   .catch(transformError)
 
@@ -30,8 +53,13 @@ const listProductTemplates = () => request
   .catch(transformError)
 
 module.exports = {
+  // Printful Catalog
+  listCatalog,
+
   // Products
-  listAllProducts,
+  listMyProducts,
+  getProductById,
+  createProduct,
 
   // Product Templates
   findProductTemplateById,
