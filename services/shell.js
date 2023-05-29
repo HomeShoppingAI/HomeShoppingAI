@@ -1,7 +1,7 @@
 const { exec } = require("child_process")
 
-const execute = (command) => {
-  console.log(`$ ${command}`)
+const execute = (command, silent) => {
+  console.log(`$ ${command}\n`)
 
   return new Promise((resolve, reject) => {
     exec(command, (err, stdout, stderr) => {
@@ -9,7 +9,9 @@ const execute = (command) => {
         console.error(stderr)
         reject(err)
       } else {
-        console.log(stdout)
+        if (!silent) {
+          console.log(stdout)
+        }
         resolve(stdout)
       }
     })

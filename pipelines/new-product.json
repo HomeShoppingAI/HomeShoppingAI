@@ -2,6 +2,7 @@
   "name": "NewProduct",
   "description": "Creates a new Product",
   "actions": [
+    "assertGitIsClean",
     "createProduct",
     "getProduct"
   ]
