@@ -83,6 +83,7 @@ module.exports = async (context) => {
 
   console.log("Using theme: ", theme)
 
+  // FIXME: Set up billing for OpenAI
   const description = await writeProductDescription(productType.description, theme)
   const summary = await summarizeProductDescription(description)
   const assets = await stubOutAssets(description, productType.assets)
