@@ -1,4 +1,4 @@
-const data = require("./data")
+const { data } = require("./files")
 
 const productDir = data.dir("products")
 
@@ -12,12 +12,12 @@ const nextId = () => {
   return highestId + 1
 }
 
-const createNewProduct = (values) => {
+const createNew = (values) => {
   const id = nextId()
 
   const product = {
-    ...values,
     id,
+    ...values,
   }
 
   productDir.writeJson(`${id}.json`, product)
@@ -25,11 +25,20 @@ const createNewProduct = (values) => {
   return product
 }
 
-const getProductById = (id) => {
+const getById = (id) => {
   return productDir.file(`${id}.json`).json()
 }
 
+const save = (product) => {
+  if (!product.id) {
+    product.id = nextId()
+  }
+
+  productDir.writeJson(`${product.id}.json`, product)
+}
+
 module.exports = {
-  createNewProduct,
-  getProductById,
+  createNew,
+  getById,
+  save,
 }

@@ -40,4 +40,4 @@ const run = async () => {
   console.log("Successfully ran", pipeline.name, "pipeline")
 }
 
-run().then(() => process.exit(0)).catch(e => console.error(e.message) || process.exit(1))
+run().then(() => process.exit(0)).catch(e => console.error("ERROR:", e.message) || process.exit(1))

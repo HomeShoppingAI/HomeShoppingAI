@@ -4,6 +4,12 @@
   "actions": [
     "assertGitIsClean",
     "createProduct",
-    "getProduct"
+    "generateAssetsForProduct",
+    "publishAssetsForProduct",
+    "manuallyLinkProductToPrintful",
+    "unpublishAssetsForProduct",
+    "makeProductCurrent",
+    "buildWebsite",
+    "publishWebsite"
   ]
 }

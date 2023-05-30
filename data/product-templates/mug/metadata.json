@@ -1,4 +1,8 @@
 {
   "asset_id": "69f9f8c8-17cc-44a4-9e79-72141ab9ccd2",
-  "printful_id": 45844485
+  "printful_id": 45844485,
+  "description": "A white ceramic mug",
+  "requiredAssets": [
+    { "type": "image", "context": "the image that goes on the mug" }
+  ]
 }

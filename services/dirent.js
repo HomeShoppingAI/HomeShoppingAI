@@ -1,3 +1,4 @@
+const client = require("https")
 const fs = require("fs")
 const path = require("path")
 
@@ -86,6 +87,37 @@ class Dirent {
   writeJson(filename, object) {
     const text = JSON.stringify(object, null, 2) // Formatted to make by hand editing easier and git changes more obvious
     this.writeText(filename, text)
+  }
+
+  writeContentsAtUrl(filename, url) {
+    if (!this.isDir) {
+      throw new Error("Unable to write file to other file")
+    }
+
+    let finalFilename = filename
+
+    // If filename doesn't have extension, pull extension from URL
+    if (!path.extname(filename)) {
+      finalFilename = filename + path.extname(url)
+    }
+
+    const newFilePath = path.join(this.path, finalFilename)
+
+
+    return new Promise((resolve, reject) => {
+      client.get(url, (res) => {
+          if (res.statusCode === 200) {
+              res
+                .pipe(fs.createWriteStream(newFilePath))
+                .on('error', reject)
+                .once('close', () => resolve(newFilePath))
+          } else {
+              // Consume response data to free up memory
+              res.resume()
+              reject(new Error(`Request Failed With a Status Code: ${res.statusCode}`))
+          }
+      });
+  });
   }
 }
 
